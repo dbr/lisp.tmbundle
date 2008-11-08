@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
@@ -9,7 +9,7 @@
 html_header "Documentation for Word" "Common Lisp HyperSpec"
 read KEYWORD
 echo "&lt;ul&gt;"
-curl -s "http://www.lisp.org/HyperSpec/FrontMatter/Symbol-Index-Alphabetical.html" | grep -E "&lt;LI&gt;&lt;A.* HREF=\".+\"&gt;&lt;B&gt;.*$KEYWORD.*&lt;/B&gt;&lt;/A&gt;" | sed -E "s/&lt;LI&gt;&lt;A.* HREF=\"\.\.(.+)\"&gt;&lt;B&gt;(.+)&lt;\/B&gt;&lt;\/A&gt;/&lt;li&gt;&lt;a href=\"http:\/\/www.lisp.org\/HyperSpec\1\"&gt;\2&lt;\/a&gt;&lt;\/li&gt;/"
+curl -s "http://www.lispworks.com/documentation/HyperSpec/Front/X_AllSym.htm" | grep -E "&lt;LI&gt;&lt;A.* HREF=\".+\"&gt;&lt;B&gt;.*$KEYWORD.*&lt;/B&gt;&lt;/A&gt;" | sed -E "s/&lt;LI&gt;&lt;A.* HREF=\"\.\.(.+)\"&gt;&lt;B&gt;(.+)&lt;\/B&gt;&lt;\/A&gt;/&lt;li&gt;&lt;a href=\"http:\/\/www.lispworks.com\/documentation\/HyperSpec\1\"&gt;\2&lt;\/a&gt;&lt;\/li&gt;/"
 echo "&lt;/ul&gt;"
 html_footer
 </string>
