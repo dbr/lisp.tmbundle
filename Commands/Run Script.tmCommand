@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/scriptmate"
+require "pathname"
+
+class LispScript &lt; UserScript
+  def lang; "Lisp" end
+  def executable; @hashbang || ENV['TM_LISP'] || 'clisp' end
+  def version_string
+    %x{#{executable} --version | head -1}
+  end
+end
+
+class LispMate &lt; ScriptMate; end
+
+script = LispScript.new(STDIN.read)
+LispMate.new(script).emit_html</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run Script</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.lisp</string>
+	<key>uuid</key>
+	<string>127741E4-EE73-4B94-B960-587CDF4FEABE</string>
+</dict>
+</plist>
